@@ -8,7 +8,7 @@ function App() {
     console.log("Pornesc cererea...");
 
     axios
-        .get("http://localhost:8080/api/hello")
+        .get("api/hello")
         .then((response) => {
           console.log("Răspuns primit:", response.data);
           setMessage(response.data);
