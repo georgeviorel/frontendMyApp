@@ -39,6 +39,10 @@ function Register() {
 
         } catch (error) {
 
+            console.log("STATUS:", error.response?.status);
+            console.log("DATA:", error.response?.data);
+            console.log(error);
+
             setMessage(
                 error.response?.data ||
                 "Eroare la înregistrare"
