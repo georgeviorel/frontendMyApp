@@ -1,30 +1,42 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+import Login from "./Login";
+import Register from "./Register";
 
 function App() {
-  const [message, setMessage] = useState("Nu am primit nimic încă");
 
-  useEffect(() => {
-    console.log("Pornesc cererea...");
+    return (
+        <BrowserRouter>
 
-    axios
-        .get("api/hello")
-        .then((response) => {
-          console.log("Răspuns primit:", response.data);
-          setMessage(response.data);
-        })
-        .catch((error) => {
-          console.error("EROARE:", error);
-          setMessage("A apărut o eroare");
-        });
-  }, []);
+            <nav>
+                <Link to="/login">Login</Link>
+                {" | "}
+                <Link to="/register">Register</Link>
+            </nav>
 
-  return (
-      <div>
-        <h1>MyApp</h1>
-        <p>{message}</p>
-      </div>
-  );
+            <hr />
+
+            <Routes>
+
+                <Route
+                    path="/"
+                    element={<Login />}
+                />
+
+                <Route
+                    path="/login"
+                    element={<Login />}
+                />
+
+                <Route
+                    path="/register"
+                    element={<Register />}
+                />
+
+            </Routes>
+
+        </BrowserRouter>
+    );
 }
 
 export default App;
