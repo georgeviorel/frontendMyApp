@@ -7,8 +7,7 @@ import "../styles/Navbar.css";
 
 function Navbar() {
 
-    const { logout, profile } =
-        useContext(AuthContext);
+    const { logout, profile } = useContext(AuthContext);
 
     const navigate = useNavigate();
 

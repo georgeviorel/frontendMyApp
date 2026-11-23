@@ -70,7 +70,7 @@ function Profile() {
 
                 <br />
 
-                
+
 
             </AuthCard>
 
