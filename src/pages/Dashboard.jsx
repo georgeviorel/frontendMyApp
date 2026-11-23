@@ -1,19 +1,58 @@
 import MainLayout from "../layouts/MainLayout";
-import AuthCard from "../components/AuthCard";
+import "../styles/Dashboard.css";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 function Dashboard() {
+
+    const { profile } = useContext(AuthContext);
+
     return (
         <MainLayout>
 
-            <AuthCard title="Dashboard">
+            <div className="dashboard">
 
-                <h2>Bine ai venit!</h2>
+                <h1 className="dashboard-title">
+                    Salut, {profile?.username || "Utilizator"}
+                </h1>
 
-                <p>
-                    Ai fost autentificat cu succes.
-                </p>
+                <div className="dashboard-grid">
 
-            </AuthCard>
+                    <div className="dashboard-card">
+                        <h3>👤 Profil</h3>
+
+                        <p>
+                            Vezi informațiile contului tău.
+                        </p>
+                    </div>
+
+                    <div className="dashboard-card">
+                        <h3>⚙️ Setări</h3>
+
+                        <p>
+                            Configurează aplicația.
+                        </p>
+                    </div>
+
+                    <div className="dashboard-card">
+                        <h3>✅ Task-uri</h3>
+
+                        <p>
+                            Funcționalitate viitoare.
+                        </p>
+                    </div>
+
+                    <div className="dashboard-card">
+                        <h3>📊 Statistici</h3>
+
+                        <p>
+                            Funcționalitate viitoare.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
 
         </MainLayout>
     );
