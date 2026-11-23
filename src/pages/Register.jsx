@@ -1,6 +1,13 @@
 import { useState } from "react";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import {
+    register
+} from "../services/authService";
+import {  useNavigate } from "react-router-dom";
+import "../styles/Auth.css";
+import AuthCard from "../components/AuthCard";
+import InputField from "../components/InputField";
+import AuthButton from "../components/AuthButton";
+import AuthFooter from "../components/AuthFooter";
 
 function Register() {
 
@@ -16,16 +23,11 @@ function Register() {
 
         try {
 
-            const response = await axios.post(
-                "/api/auth/register",
-                {
-                    username,
-                    email,
-                    password
-                }
+            await register(
+                username,
+                email,
+                password
             );
-
-            setMessage(response.data);
 
             setMessage("Utilizator creat");
 
@@ -51,73 +53,57 @@ function Register() {
     };
 
     return (
-        <div>
+        <AuthCard title = "Creeaza cont">
 
-            <h1>Register</h1>
 
-            <form onSubmit={handleRegister}>
+                <form onSubmit={handleRegister}>
 
-                <div>
-                    <label>Username</label>
-                    <br />
-
-                    <input
+                    <InputField
+                        label="Username"
                         type="text"
                         value={username}
                         onChange={(e) =>
                             setUsername(e.target.value)
                         }
                     />
-                </div>
 
-                <br />
-
-                <div>
-                    <label>Email</label>
-                    <br />
-
-                    <input
+                    <InputField
+                        label="Email"
                         type="email"
                         value={email}
                         onChange={(e) =>
                             setEmail(e.target.value)
                         }
                     />
-                </div>
 
-                <br />
-
-                <div>
-                    <label>Parolă</label>
-                    <br />
-
-                    <input
+                    <InputField
+                        label="Parolă"
                         type="password"
                         value={password}
                         onChange={(e) =>
                             setPassword(e.target.value)
                         }
                     />
-                </div>
 
-                <br />
+                    <AuthButton
+                        type="submit"
+                    >
+                        Creează cont
+                    </AuthButton>
 
-                <button type="submit">
-                    Creează cont
-                </button>
+                </form>
 
-            </form>
+                <p className="message">
+                    {message}
+                </p>
 
-            <p>{message}</p>
+            <AuthFooter
+                text="Ai deja cont?"
+                linkText="Login"
+                to="/login"
+            />
+        </AuthCard>
 
-            <p>
-                Ai deja cont?
-                <Link to="/login">
-                    Login
-                </Link>
-            </p>
-
-        </div>
     );
 }
 

@@ -1,20 +1,14 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-import Login from "./Login";
-import Register from "./Register";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import Profile from "./pages/Profile";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
 
     return (
         <BrowserRouter>
-
-            <nav>
-                <Link to="/login">Login</Link>
-                {" | "}
-                <Link to="/register">Register</Link>
-            </nav>
-
-            <hr />
 
             <Routes>
 
@@ -31,6 +25,15 @@ function App() {
                 <Route
                     path="/register"
                     element={<Register />}
+                />
+
+                <Route
+                    path="/profile"
+                    element={
+                        <ProtectedRoute>
+                            <Profile />
+                        </ProtectedRoute>
+                    }
                 />
 
             </Routes>
