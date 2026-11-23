@@ -7,16 +7,18 @@ import AuthCard from "../components/AuthCard";
 import InputField from "../components/InputField";
 import AuthButton from "../components/AuthButton.jsx";
 import AuthFooter from "../components/AuthFooter";
-import Profile from "./Profile";
 
 function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
-    const [profile, setProfile] = useState(null);
     const navigate = useNavigate();
-    const { login: authLogin } = useContext(AuthContext);
+    const {
+        login: authLogin,
+        profile,
+        setProfile
+    } = useContext(AuthContext);
 
     const loadProfile = async () => {
 
@@ -60,7 +62,7 @@ function Login() {
                 token
             );
 
-            navigate("/profile");
+            navigate("/dashboard");
 
             setMessage("Login reușit!");
 
@@ -94,8 +96,7 @@ function Login() {
 
         <AuthCard title="MyApp Login">
 
-            {!profile && (
-                <>
+
 
                     <form onSubmit={handleLogin}>
 
@@ -124,15 +125,9 @@ function Login() {
                         </AuthButton>
 
                     </form>
-                </>
-            )}
 
-            {profile && (
-                <Profile
-                    profile={profile}
-                    onLogout={handleLogout}
-                />
-            )}
+
+
 
             <p className="message">
                 {message}

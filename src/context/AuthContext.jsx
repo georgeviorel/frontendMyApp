@@ -7,6 +7,7 @@ function AuthProvider({ children }) {
     const [token, setToken] = useState(
         localStorage.getItem("token")
     );
+    const [profile, setProfile] = useState(null);
 
     const login = (newToken) => {
 
@@ -29,6 +30,8 @@ function AuthProvider({ children }) {
         <AuthContext.Provider
             value={{
                 token,
+                profile,
+                setProfile,
                 login,
                 logout
             }}

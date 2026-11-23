@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import AuthCard from "../components/AuthCard";
 import AuthButton from "../components/AuthButton";
 import { getProfile } from "../services/authService";
+import MainLayout from "../layouts/MainLayout";
 
 function Profile() {
 
@@ -55,25 +56,25 @@ function Profile() {
     }
 
     return (
-        <AuthCard title="Profil">
+        <MainLayout>
 
-            <h2>
-                Salut, {profile.username}!
-            </h2>
+            <AuthCard title="Profil">
 
-            <p>
-                Email: {profile.email}
-            </p>
+                <h2>
+                    Salut, {profile.username}!
+                </h2>
 
-            <br />
+                <p>
+                    Email: {profile.email}
+                </p>
 
-            <AuthButton
-                onClick={handleLogout}
-            >
-                Logout
-            </AuthButton>
+                <br />
 
-        </AuthCard>
+                
+
+            </AuthCard>
+
+        </MainLayout>
     );
 }
 
