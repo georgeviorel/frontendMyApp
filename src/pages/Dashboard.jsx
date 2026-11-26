@@ -2,10 +2,13 @@ import MainLayout from "../layouts/MainLayout";
 import "../styles/Dashboard.css";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import DashboardCard from "../components/DashboardCard";
 
 function Dashboard() {
 
     const { profile } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     return (
         <MainLayout>
@@ -18,37 +21,32 @@ function Dashboard() {
 
                 <div className="dashboard-grid">
 
-                    <div className="dashboard-card">
-                        <h3>👤 Profil</h3>
+                    <DashboardCard
+                        icon="👤"
+                        title="Profil"
+                        description="Vezi informațiile contului tău."
+                        onClick={() => navigate("/profile")}
+                    />
 
-                        <p>
-                            Vezi informațiile contului tău.
-                        </p>
-                    </div>
+                    <DashboardCard
+                        icon="⚙️"
+                        title="Setări"
+                        description="Configurează aplicația."
+                        onClick={() => navigate("/settings")}
+                    />
 
-                    <div className="dashboard-card">
-                        <h3>⚙️ Setări</h3>
+                    <DashboardCard
+                        icon="✅"
+                        title="Task-uri"
+                        description="Funcționalitate viitoare."
+                    />
 
-                        <p>
-                            Configurează aplicația.
-                        </p>
-                    </div>
-
-                    <div className="dashboard-card">
-                        <h3>✅ Task-uri</h3>
-
-                        <p>
-                            Funcționalitate viitoare.
-                        </p>
-                    </div>
-
-                    <div className="dashboard-card">
-                        <h3>📊 Statistici</h3>
-
-                        <p>
-                            Funcționalitate viitoare.
-                        </p>
-                    </div>
+                    <DashboardCard
+                        icon="📊"
+                        title="Statistici"
+                        description="Statisticile tale."
+                        onClick={() => navigate("/statistics")}
+                    />
 
                 </div>
 

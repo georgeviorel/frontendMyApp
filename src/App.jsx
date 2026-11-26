@@ -5,6 +5,8 @@ import Register from "./pages/Register.jsx";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
+import Settings from "./pages/Settings";
+import Statistics from "./pages/Statistics";
 
 function App() {
 
@@ -46,6 +48,23 @@ function App() {
                     }
                 />
 
+                <Route
+                    path="/settings"
+                    element={
+                        <ProtectedRoute>
+                            <Settings />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/statistics"
+                    element={
+                        <ProtectedRoute>
+                            <Statistics />
+                        </ProtectedRoute>
+                    }
+                />
 
             </Routes>
 

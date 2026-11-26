@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import AuthCard from "../components/AuthCard";
-import AuthButton from "../components/AuthButton";
 import { getProfile } from "../services/authService";
 import MainLayout from "../layouts/MainLayout";
 

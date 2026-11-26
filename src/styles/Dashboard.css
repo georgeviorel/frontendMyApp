@@ -28,12 +28,34 @@
     );
 }
 
+button.dashboard-card {
+    border: none;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+}
+
 .dashboard-card h3 {
     margin-bottom: 10px;
 }
 
 .dashboard-card p {
     color: #666;
+}
+
+.clickable {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.clickable:focus-visible {
+    outline: 3px solid #4f46e5;
+    outline-offset: 2px;
 }
 
 /* TABLETĂ */

@@ -23,7 +23,9 @@ function Navbar() {
 
             <div className="navbar-left">
 
-                <h2 className="logo">
+                <h2 className="logo clickable"
+                    onClick={()=> navigate("/dashboard")}
+                >
                     MyApp
                 </h2>
 
@@ -34,9 +36,13 @@ function Navbar() {
                 <Link to="/dashboard">
                     Dashboard
                 </Link>
-
+                |
                 <Link to="/profile">
                     Profil
+                </Link>
+                |
+                <Link to="/settings">
+                    Setări
                 </Link>
 
             </div>
